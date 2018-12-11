@@ -15,6 +15,7 @@ function ___checkadblock(){
 			___adBlockEnabled = true;
 		}
 		___testAd.remove();
+		console.log('AdBlock Enable :', ___adBlockEnabled);
 		clearTimeout(__checkadblock);
 	},10);
 	___detectadblock();
@@ -23,7 +24,6 @@ function ___detectadblock(){
 	var __detectadblock = window.setTimeout(function(){
 		if(___adBlockEnabled){
 		clearTimeout(__detectadblock);
-		console.log('AdBlock Enable :', ___adBlockEnabled); // true
 		// do something
 		}
 	},10);
