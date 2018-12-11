@@ -1,0 +1,31 @@
+/*
+- © 2018 - 2019
+- Content Ventures Company
+- Amr Mohamed || Derabia.com
+- https://fb.com/amrWebDeveloper
+*/
+var ___adBlockEnabled = false;
+var ___testAd = document.createElement('div');
+___testAd.innerHTML = '&nbsp;';
+___testAd.className = 'adsbox';
+document.body.appendChild(___testAd);
+function ___checkadblock(){
+	var __checkadblock = window.setTimeout(function(){
+		if(___testAd.offsetHeight === 0){
+			___adBlockEnabled = true;
+		}
+		___testAd.remove();
+		clearTimeout(__checkadblock);
+	},10);
+	___detectadblock();
+}
+function ___detectadblock(){
+	var __detectadblock = window.setTimeout(function(){
+		if(___adBlockEnabled){
+		clearTimeout(__detectadblock);
+		console.log('AdBlock Enable :', ___adBlockEnabled); // true
+		// do something
+		}
+	},10);
+}
+___checkadblock();
